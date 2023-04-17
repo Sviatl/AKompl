@@ -1,5 +1,5 @@
 /**
- * Sample React Native App
+ * 
  * https://github.com/facebook/react-native
  *
  * @format
@@ -7,6 +7,7 @@
 
 import React from 'react';
 import { Button } from 'react-native';
+import { Dropdown } from 'react-native-material-dropdown-v2';
 import type { PropsWithChildren } from 'react';
 import {
   SafeAreaView,
@@ -56,6 +57,16 @@ function Section({ children, title }: SectionProps): JSX.Element {
   );
 }
 
+const typographyData = [
+  { value: 'Display2', label: 'Display 2' },
+  { value: 'Display1', label: 'Display 1' },
+  { value: 'Headline' },
+  { value: 'Title' },
+  { value: 'Subheading' },
+  { value: 'Body' },
+  { value: 'Caption' },
+];
+
 function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
 
@@ -71,6 +82,17 @@ function App(): JSX.Element {
         <Text>Welcome to my app!</Text>
         <Button title="Press me" onPress={() => console.log('222Button pressed!')} />
       </View>
+
+      <View style={{
+        backgroundColor: isDarkMode ? Colors.black : Colors.white,
+      }}>
+        <Dropdown
+          label='Typography'
+          data={typographyData}
+        />
+      </View>
+
+
       <StatusBar
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         backgroundColor={backgroundStyle.backgroundColor}
